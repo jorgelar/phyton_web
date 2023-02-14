@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <title>MEU BLOG DO CURSO OCEAN</title>
+    </head>
+    <body>
+        <h1>MEU BLOG!</h1>
+        {% for entrada in entradas %}
+            <h2>{{ entrada ['Titulo'] }}</h2>
+            <p>{{ entrada ['texto'] }}</p>
+        {% else %}
+            <p>Não existem posts ainda!</p>
+        {% endfor %}
+    </body>
+</html>
