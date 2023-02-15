@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for, session, flash
 
 app = Flask(__name__)
 
@@ -27,7 +27,19 @@ PASSWORD = "admin"
 
 @app.route('/')
 def exibir_entradas():
+    #pegar posts no banco
     return render_template("exibir_entradas.html", entradas=posts)
+
+@app.route('/inserir', methods=["POST"])
+def inserir_entradas():
+    novo_post = {
+        "titulo": request.form['titulo'],
+        "texto": request.form['texto']
+    }
+    posts.append(novo_post)
+    request.form['titulo']
+    request.form['texto']
+    return redirect(url_for('exibir_entradas'))
 
 @app.route('/login', methods=["get", "post"])
 def login():
@@ -42,3 +54,9 @@ def login():
 @app.route('/pudim')
 def pudim():
     return "<h1>Eu gosto de pudim!</h1>"
+
+@app.route('/logout')
+def logout():
+    session.pop('logado', None)
+    flash("Logout efetuado com sucesso!")
+    return redirect(url_for('exibir_entradas'))
