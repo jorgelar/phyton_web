@@ -1,6 +1,6 @@
 body {
     font-family: sans-serif;
-    background: #eee;
+    background: #6e6969;
 }
 
 a,
@@ -28,7 +28,7 @@ h2 {
     width: 35em;
     border: 5px solid #ccc;
     padding: 0.8em;
-    background: white;
+    background: rgb(221, 212, 212);
 }
 
 .entradas {
@@ -59,7 +59,7 @@ h2 {
     font-size: 0.8em;
     padding: 0.3em;
     margin-bottom: 1em;
-    background: #fafafa;
+    background: #b7acac;
 }
 
 .flash {
